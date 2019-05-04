@@ -36,4 +36,8 @@ dependencies {
     // Material
     implementation "com.google.android.material:material:$material"
 
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_converter"
+
 }
