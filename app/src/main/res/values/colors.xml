@@ -7,6 +7,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
 
+    <color name="toolbar">#000000</color>
     <color name="tablayout">#1a1a1a</color>
     <color name="tablayout_unselected">#8d8d8d</color>
 </resources>

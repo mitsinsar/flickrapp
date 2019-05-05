@@ -40,4 +40,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$gson_converter"
 
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$picasso"
+
 }

@@ -1,5 +1,6 @@
 package com.kangarootech.flickr.network
 
+import com.kangarootech.flickr.enums.ApiEnum
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

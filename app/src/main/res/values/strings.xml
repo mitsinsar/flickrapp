@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Flickr</string>
+    <string name="app_name_toolbar">flickr</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description_recent_img">recently shared images</string>
+
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_recent_img_title">16sp</dimen>
+    <dimen name="margin_bottom_recent_img_title">8dp</dimen>
+    <dimen name="padding_recent_img_layout">4dp</dimen>
+</resources>

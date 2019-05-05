@@ -6,6 +6,7 @@ buildscript {
         material = '1.1.0-alpha05'
         retrofit = '2.5.0'
         gson_converter = '2.5.0'
+        picasso = '2.71828'
     }
     repositories {
         google()

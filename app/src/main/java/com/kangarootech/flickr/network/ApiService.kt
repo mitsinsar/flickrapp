@@ -1,5 +1,6 @@
 package com.kangarootech.flickr.network
 
+import com.kangarootech.flickr.enums.ApiEnum
 import com.kangarootech.flickr.network.response.PhotosResponseDTO
 import retrofit2.Call
 import retrofit2.http.GET

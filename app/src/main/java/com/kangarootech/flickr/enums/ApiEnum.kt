@@ -1,4 +1,4 @@
-package com.kangarootech.flickr.network
+package com.kangarootech.flickr.enums
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 

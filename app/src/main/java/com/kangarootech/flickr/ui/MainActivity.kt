@@ -1,8 +1,9 @@
-package com.kangarootech.flickr
+package com.kangarootech.flickr.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import com.kangarootech.flickr.R
 import com.kangarootech.flickr.adapter.MainActPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
