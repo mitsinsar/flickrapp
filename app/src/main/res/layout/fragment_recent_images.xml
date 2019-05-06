@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.frgrecentimgs.RecentImagesFragment">
 
-    <include layout="@layout/layout_toolbar" />
+    <include
+        android:id="@+id/toolbarRecentImages"
+        layout="@layout/layout_toolbar" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshRecentImages"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarRecentImages">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerRecentImages"
@@ -19,5 +22,15 @@
             android:layout_height="match_parent" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <com.kangarootech.flickr.util.FlickrProgressBar
+        android:id="@+id/pbarRecentImages"
+        android:layout_width="@dimen/flickr_progress_bar_size"
+        android:layout_height="@dimen/flickr_progress_bar_size"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_flickr_progress_bar"
+        android:visibility="gone"/>
 
-</LinearLayout>
+
+</RelativeLayout>

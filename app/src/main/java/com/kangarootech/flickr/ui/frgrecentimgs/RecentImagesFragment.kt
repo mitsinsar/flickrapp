@@ -57,10 +57,10 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
             it.addOnScrollListener(object : RecyclerScrollListener(it.layoutManager as GridLayoutManager) {
                 override var isLoading: Boolean
                     get() = isItemsLoading
-                    set(value) {}
+                    set(_) {}
                 override var isLastPage: Boolean
                     get() = currentPage == lastPage
-                    set(value) {}
+                    set(_) {}
 
                 override fun loadMoreItems() {
                     mPresenter.getImagesByPage(currentPage)
@@ -77,10 +77,11 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
     override fun hideProgress() {
         if (swipeRefreshRecentImages.isRefreshing)
             swipeRefreshRecentImages.isRefreshing = false
+        pbarRecentImages.hideLoading()
     }
 
     override fun showProgress() {
-        swipeRefreshRecentImages.isRefreshing = true
+        pbarRecentImages.showLoading()
     }
 
     override fun updateList(list: List<PhotoDTO>) {

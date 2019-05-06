@@ -82,8 +82,10 @@ class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListe
             btnCancel.id -> {
                 hideKeyboard()
                 edtSearch.clearFocus()
+                edtSearch.text.clear()
                 appBar.setExpanded(true)
                 btnCancel.visibility = View.GONE
+                btnCancelClearText.visibility = View.GONE
                 recyclerSearchResult replaceWith recyclerDefaultImages
             }
             btnCancelClearText.id -> {

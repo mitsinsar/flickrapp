@@ -12,4 +12,6 @@
     <dimen name="height_btn_search_cancel">32dp</dimen>
     <dimen name="margin_btn_search_cancel">16dp</dimen>
     <dimen name="btn_size_search_clear">24dp</dimen>
+    <dimen name="flickr_progress_bar_size">48dp</dimen>
+    <dimen name="margin_flickr_progress_bar">16dp</dimen>
 </resources>

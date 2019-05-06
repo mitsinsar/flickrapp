@@ -79,12 +79,12 @@
 
     <com.kangarootech.flickr.util.FlickrProgressBar
         android:id="@+id/pbarSearch"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/flickr_progress_bar_size"
+        android:layout_height="@dimen/flickr_progress_bar_size"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/margin_flickr_progress_bar"
         android:visibility="gone" />
 
 
