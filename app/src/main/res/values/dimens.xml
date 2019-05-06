@@ -6,4 +6,10 @@
     <dimen name="btn_size_img_act_bottom">24dp</dimen>
     <dimen name="btn_margin_img_act_bottom">24dp</dimen>
     <dimen name="circular_img_size">36dp</dimen>
+    <dimen name="text_size_search_item_title">16sp</dimen>
+    <dimen name="margin_bottom_search_item_title">8dp</dimen>
+    <dimen name="margin_btn_left_clear_text">16dp</dimen>
+    <dimen name="height_btn_search_cancel">32dp</dimen>
+    <dimen name="margin_btn_search_cancel">16dp</dimen>
+    <dimen name="btn_size_search_clear">24dp</dimen>
 </resources>

@@ -28,5 +28,13 @@ enum class ApiEnum {
         override fun toString(): String {
             return "https://api.flickr.com/services/rest/"
         }
+    },
+
+
+    //Group ID of pictures which is shown in Search Fragment ( group name "in explore" )
+    EXPLORE_GROUP_ID {
+        override fun toString(): String {
+            return "2389839@N23"
+        }
     }
 }

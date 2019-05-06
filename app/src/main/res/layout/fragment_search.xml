@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".ui.frgsearch.SearchFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".ui.frgsearch.SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/layoutSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/searchBarBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/description_ic_search"
+            android:src="@drawable/ic_search_gray" />
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:hint="@string/hint_search_flickr"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/searchEdtHint"
+            android:textCursorDrawable="@drawable/dr_edit_text_cursor"
+            tools:ignore="Autofill" />
+
+        <ImageButton
+            android:id="@+id/btnCancelClearText"
+            android:layout_width="@dimen/btn_size_search_clear"
+            android:layout_height="24dp"
+            android:layout_marginStart="@dimen/margin_btn_left_clear_text"
+            android:layout_marginLeft="@dimen/margin_btn_left_clear_text"
+            android:background="@drawable/ic_cancel_gray"
+            android:contentDescription="@string/description_btn_clear_text"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_btn_search_cancel"
+            android:layout_margin="@dimen/margin_btn_search_cancel"
+            android:background="@drawable/dr_bckgrnd_btn_cancel"
+            android:text="@string/btn_cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutSearchBar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerDefaultImages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSearchResult"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:visibility="gone" />
 
-</FrameLayout>
+    </FrameLayout>
+
+    <com.kangarootech.flickr.util.FlickrProgressBar
+        android:id="@+id/pbarSearch"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

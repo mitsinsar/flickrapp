@@ -31,4 +31,16 @@ interface ApiService {
         @Query("photo_id") photoId: String,
         @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
     ): Call<PhotoDetailsResponseDTO>
+
+    @GET("?method=flickr.photos.search&format=json&nojsoncallback=1")
+    fun getImageBySearch(
+            @Query("text") searchText: String,
+            @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
+    ): Call<PhotosResponseDTO?>
+
+    @GET("?method=flickr.groups.pools.getPhotos&format=json&nojsoncallback=1")
+    fun getExploreImages(
+            @Query("group_id") groupId: String = ApiEnum.EXPLORE_GROUP_ID.toString(),
+            @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
+    ): Call<PhotosResponseDTO?>
 }

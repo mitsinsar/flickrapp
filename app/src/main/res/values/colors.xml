@@ -14,4 +14,12 @@
     <color name="flickrBlue">#0063DC</color>
     <color name="flickrPink">#FF0084</color>
 
+    <color name="searchBarBackground">#333333</color>
+    <color name="searchTabText">#1b1b1b</color>
+    <color name="searchTabTextGray">#7c7c7c</color>
+    <color name="searchBackground">#f2f2f2</color>
+    <color name="searchEdtHint">#828282</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="gifBackground">#70000000</color>
 </resources>

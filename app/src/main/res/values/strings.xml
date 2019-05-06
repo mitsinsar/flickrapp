@@ -11,5 +11,10 @@
     <string name="description_comment_btn">comment</string>
     <string name="description_share">share</string>
     <string name="description_info">info</string>
+    <string name="hint_search_flickr">Search Flickr</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="description_ic_search">magnifying glass icon</string>
+    <string name="description_search_image">searched images result</string>
+    <string name="description_btn_clear_text">search text clear button</string>
 
 </resources>

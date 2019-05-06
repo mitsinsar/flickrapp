@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item android:drawable="@drawable/dr_gif_frame_0"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_1"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_2"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_3"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_4"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_5"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_6"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_7"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_8"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_9"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_10"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_11"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_12"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_13"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_14"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_15"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_16"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_17"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_18"
+        android:duration="40"/>
+    <item android:drawable="@drawable/dr_gif_frame_19"
+        android:duration="40"/>
+
+</animation-list>
