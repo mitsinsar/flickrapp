@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dr_bckgrnd_image_act_top">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgImageActivityOwnerImage"
+        android:layout_width="@dimen/circular_img_size"
+        android:layout_height="@dimen/circular_img_size"
+        android:layout_margin="16dp"
+        android:src="@drawable/dr_placeholder_profilepic" />
+
+    <TextView
+        android:id="@+id/txtImageActivityOwnerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/btnImageActClose"
+        android:layout_toLeftOf="@id/btnImageActClose"
+        android:layout_toEndOf="@id/imgImageActivityOwnerImage"
+        android:layout_toRightOf="@id/imgImageActivityOwnerImage"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:text="username placeholder" />
+
+    <ImageButton
+        android:id="@+id/btnImageActClose"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_close_white"
+        android:contentDescription="@string/description_close_image" />
+</RelativeLayout>

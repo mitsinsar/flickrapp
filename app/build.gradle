@@ -43,4 +43,6 @@ dependencies {
     //Picasso
     implementation "com.squareup.picasso:picasso:$picasso"
 
+    //Circle Image View
+    implementation "de.hdodenhof:circleimageview:$circular_imgview"
 }

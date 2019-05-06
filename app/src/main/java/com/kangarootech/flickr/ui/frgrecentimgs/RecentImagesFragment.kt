@@ -1,6 +1,7 @@
 package com.kangarootech.flickr.ui.frgrecentimgs
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.kangarootech.flickr.R
 import com.kangarootech.flickr.Repository
 import com.kangarootech.flickr.adapter.RecentImagesRecyclerAdapter
 import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.ui.actimage.ImageActivity
 import com.kangarootech.flickr.util.RecyclerScrollListener
 import kotlinx.android.synthetic.main.fragment_recent_images.*
 
@@ -42,7 +44,9 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
         super.onViewCreated(view, savedInstanceState)
 
         mAdapter = RecentImagesRecyclerAdapter(mutableListOf()) {
-
+            val intent = Intent(context, ImageActivity::class.java)
+            intent.putExtra("photoId", it.id)
+            startActivity(intent)
         }
 
         recyclerRecentImages.apply {

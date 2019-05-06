@@ -1,9 +1,11 @@
 package com.kangarootech.flickr
 
 import android.content.Context
+import android.util.Log
 import com.kangarootech.flickr.enums.StatusCodeEnum
 import com.kangarootech.flickr.network.ApiService
 import com.kangarootech.flickr.network.RetrofitClient
+import com.kangarootech.flickr.network.response.PhotoDetailsResponseDTO
 import com.kangarootech.flickr.network.response.PhotosResponseDTO
 import com.kangarootech.flickr.util.hasConnection
 import retrofit2.Call
@@ -41,6 +43,34 @@ class Repository(private val context: Context) {
                             onResult(null, StatusCodeEnum.NO_CONTENT.value)
                         }
                     }
+                })
+        } else {
+            onResult(null, StatusCodeEnum.CONNECTION_ERROR.value)
+        }
+    }
+
+    fun getImageDetailById(photoId: String, onResult: (PhotoDetailsResponseDTO?, resultCode: Int) -> Unit) {
+        Log.e("photoId", photoId)
+        if (hasConnection(context)) {
+            RetrofitClient.getClient()
+                .create(ApiService::class.java)
+                .getImageDetail(photoId)
+                .enqueue(object : Callback<PhotoDetailsResponseDTO?> {
+                    override fun onFailure(call: Call<PhotoDetailsResponseDTO?>, t: Throwable) {
+                        onResult(null, StatusCodeEnum.SERVICE_UNAVAILABLE.value)
+                    }
+
+                    override fun onResponse(
+                        call: Call<PhotoDetailsResponseDTO?>,
+                        response: Response<PhotoDetailsResponseDTO?>
+                    ) {
+                        if (response.body()?.photo != null) {
+                            onResult(response.body(), StatusCodeEnum.OK.value)
+                        } else {
+                            onResult(null, StatusCodeEnum.NO_CONTENT.value)
+                        }
+                    }
+
                 })
         } else {
             onResult(null, StatusCodeEnum.CONNECTION_ERROR.value)

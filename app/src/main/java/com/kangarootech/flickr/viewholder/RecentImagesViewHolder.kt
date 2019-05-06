@@ -39,7 +39,9 @@ class RecentImagesViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         val imageUrl = "https://farm${model.farm}.staticflickr.com/${model.server}/${model.id}_${model.secret}_z.jpg"
         Picasso.get().load(imageUrl).into(image)
 
-        //TODO onItemClick
+        itemView.setOnClickListener {
+            onItemClick(model)
+        }
     }
 }
 

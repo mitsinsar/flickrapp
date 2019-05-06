@@ -5,5 +5,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_recent_img">recently shared images</string>
+    <string name="description_close_image">close image</string>
+    <string name="description_image_activity_main_image">selected image</string>
+    <string name="description_fav_btn">favorite</string>
+    <string name="description_comment_btn">comment</string>
+    <string name="description_share">share</string>
+    <string name="description_info">info</string>
 
 </resources>

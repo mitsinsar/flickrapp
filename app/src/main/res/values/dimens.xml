@@ -3,4 +3,7 @@
     <dimen name="text_size_recent_img_title">16sp</dimen>
     <dimen name="margin_bottom_recent_img_title">8dp</dimen>
     <dimen name="padding_recent_img_layout">4dp</dimen>
+    <dimen name="btn_size_img_act_bottom">24dp</dimen>
+    <dimen name="btn_margin_img_act_bottom">24dp</dimen>
+    <dimen name="circular_img_size">36dp</dimen>
 </resources>

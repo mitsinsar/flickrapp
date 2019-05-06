@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#FF0084</color>
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
@@ -10,4 +10,8 @@
     <color name="toolbar">#000000</color>
     <color name="tablayout">#1a1a1a</color>
     <color name="tablayout_unselected">#8d8d8d</color>
+
+    <color name="flickrBlue">#0063DC</color>
+    <color name="flickrPink">#FF0084</color>
+
 </resources>

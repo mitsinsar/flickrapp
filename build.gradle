@@ -7,6 +7,7 @@ buildscript {
         retrofit = '2.5.0'
         gson_converter = '2.5.0'
         picasso = '2.71828'
+        circular_imgview = '3.0.0'
     }
     repositories {
         google()

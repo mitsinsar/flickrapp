@@ -1,6 +1,7 @@
 package com.kangarootech.flickr.network
 
 import com.kangarootech.flickr.enums.ApiEnum
+import com.kangarootech.flickr.network.response.PhotoDetailsResponseDTO
 import com.kangarootech.flickr.network.response.PhotosResponseDTO
 import retrofit2.Call
 import retrofit2.http.GET
@@ -24,4 +25,10 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
     ): Call<PhotosResponseDTO?>
+
+    @GET("?method=flickr.photos.getInfo&format=json&nojsoncallback=1")
+    fun getImageDetail(
+        @Query("photo_id") photoId: String,
+        @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
+    ): Call<PhotoDetailsResponseDTO>
 }
