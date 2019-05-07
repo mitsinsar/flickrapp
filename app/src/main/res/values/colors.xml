@@ -22,4 +22,7 @@
 
     <color name="transparent">#00000000</color>
     <color name="gifBackground">#70000000</color>
+
+    <color name="backgroundGray">#EEEEEE</color>
+
 </resources>
