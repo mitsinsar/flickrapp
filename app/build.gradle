@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -45,4 +47,8 @@ dependencies {
 
     //Circle Image View
     implementation "de.hdodenhof:circleimageview:$circular_imgview"
+
+    //Room DB
+    implementation "android.arch.persistence.room:runtime:$room_runtime"
+    kapt "android.arch.persistence.room:compiler:$room_compiler"
 }
