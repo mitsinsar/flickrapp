@@ -23,11 +23,13 @@ interface RecentImagesContract {
         fun showToast(message: String)
         fun updateCurrentPage()
         fun updateLastPage(page: Int)
+        fun navigateToImageActivity(photoId: String)
 
     }
 
     interface Presenter {
         fun getImagesByPage(page: Int)
+        fun onClickImage(image: PhotoDTO)
         fun refreshImages()
     }
 }

@@ -43,10 +43,8 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = RecentImagesRecyclerAdapter(mutableListOf()) {
-            val intent = Intent(context, ImageActivity::class.java)
-            intent.putExtra("photoId", it.id)
-            startActivity(intent)
+        mAdapter = RecentImagesRecyclerAdapter(mutableListOf()) { _image ->
+            mPresenter.onClickImage(_image)
         }
 
         recyclerRecentImages.apply {
@@ -110,5 +108,11 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
 
     override fun updateLastPage(page: Int) {
         lastPage = page
+    }
+
+    override fun navigateToImageActivity(photoId: String) {
+        val intent = Intent(context, ImageActivity::class.java)
+        intent.putExtra("photoId", photoId)
+        startActivity(intent)
     }
 }
