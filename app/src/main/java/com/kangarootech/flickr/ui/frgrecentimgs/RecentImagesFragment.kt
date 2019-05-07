@@ -75,9 +75,13 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
     }
 
     override fun hideProgress() {
-        if (swipeRefreshRecentImages.isRefreshing)
-            swipeRefreshRecentImages.isRefreshing = false
-        pbarRecentImages.hideLoading()
+        swipeRefreshRecentImages?.run {
+            if(isRefreshing)
+                isRefreshing = false
+        }
+        pbarRecentImages?.run {
+            hideLoading()
+        }
     }
 
     override fun showProgress() {
