@@ -20,9 +20,13 @@ interface ImageActivityContract {
         fun hideProgress()
         fun updateImageInfo(model: PhotoDetailDTO)
         fun showToast(message: String)
+        fun loadOwnerIcon(iconUrl: String)
+        fun loadImage(imageUrl: String)
+        fun setInfoBarsVisibility()
     }
 
     interface Presenter {
         fun getImageDetailsById(photoId: String)
+        fun onClickImage()
     }
 }

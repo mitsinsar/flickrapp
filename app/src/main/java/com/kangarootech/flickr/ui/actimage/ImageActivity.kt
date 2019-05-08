@@ -42,13 +42,7 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
         when (v?.id) {
             btnImageActClose.id -> finish()
             imgImageActivity.id -> {
-                if (layoutImgActivityTop.isVisible || layoutImgActivityBottom.isVisible) {
-                    layoutImgActivityBottom.visibility = View.GONE
-                    layoutImgActivityTop.visibility = View.GONE
-                } else {
-                    layoutImgActivityBottom.visibility = View.VISIBLE
-                    layoutImgActivityTop.visibility = View.VISIBLE
-                }
+                mPresenter.onClickImage()
             }
         }
     }
@@ -62,10 +56,6 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
     }
 
     override fun updateImageInfo(model: PhotoDetailDTO) {
-
-        loadImage(model.farm, model.server, model.id, model.originalSecret, model.secret, model.originalFormat)
-        loadOwnerIcon(model.owner.iconFarm, model.owner.iconServer, model.owner.nsid)
-
         txtImageActivityOwnerName.text = model.owner.username
         txtImageActImageTitle.text = model.title._content.toString()
         val commentPlaceholder = "${model.comments._content} Comments"
@@ -75,25 +65,25 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
 
     }
 
+    override fun setInfoBarsVisibility() {
+        if (layoutImgActivityTop.isVisible || layoutImgActivityBottom.isVisible) {
+            layoutImgActivityBottom.visibility = View.GONE
+            layoutImgActivityTop.visibility = View.GONE
+        } else {
+            layoutImgActivityBottom.visibility = View.VISIBLE
+            layoutImgActivityTop.visibility = View.VISIBLE
+        }
+    }
+
     override fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun loadImage(farm: Int, server: String, id: String, secret: String, o_secret: String?, format: String?) {
-
-        val imageUrl = if (o_secret != null) {
-            "https://farm$farm.staticflickr.com/$server/${id}_$o_secret.$format"
-        } else {
-            "https://farm$farm.staticflickr.com/$server/${id}_$secret.jpg"
-        }
-
+    override fun loadImage(imageUrl: String) {
         mPicassoInstance.loadUrl(imageUrl, imgImageActivity)
     }
 
-    private fun loadOwnerIcon(farm: Int, server: String, nsid: String) {
-
-        val iconUrl = "http://farm$farm.staticflickr.com/$server/buddyicons/$nsid.jpg"
-
+    override fun loadOwnerIcon(iconUrl: String) {
         mPicassoInstance.loadUrl(iconUrl, imgImageActivityOwnerImage)
     }
 }

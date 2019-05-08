@@ -36,8 +36,7 @@ class RecentImagesViewHolder(parent: ViewGroup, private val mPicassoHelper: Pica
     fun bind(model: PhotoDTO, onItemClick: (PhotoDTO) -> Unit) {
 
         title.text = model.title
-        val imageUrl = "https://farm${model.farm}.staticflickr.com/${model.server}/${model.id}_${model.secret}_z.jpg"
-        mPicassoHelper.loadUrl(imageUrl, image)
+        mPicassoHelper.loadUrl(model.getImageUrl(), image)
 
         itemView.setOnClickListener {
             onItemClick(model)

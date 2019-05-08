@@ -27,8 +27,7 @@ class SearchViewHolder(parent: ViewGroup, private val mPicassoHelper: PicassoHel
     private val image by lazy { itemView.findViewById<ImageView>(R.id.imgSearch) }
 
     fun bind(model: PhotoDTO, onItemClick: (PhotoDTO) -> Unit) {
-        val imgUrl = "https://farm${model.farm}.staticflickr.com/${model.server}/${model.id}_${model.secret}_c.jpg"
-        mPicassoHelper.loadUrl(imgUrl, image)
+        mPicassoHelper.loadUrl(model.getImageUrl(), image)
 
         itemView.setOnClickListener {
             onItemClick(model)

@@ -26,4 +26,6 @@ data class PhotoDTO(
     val isFriend: Int,
     @SerializedName("isfamily")
     val isFamily: Int
-)
+){
+    fun getImageUrl() = "https://farm$farm.staticflickr.com/$server/${id}_$secret.jpg"
+}
