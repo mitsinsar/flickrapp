@@ -1,6 +1,7 @@
 package com.kangarootech.flickr.network
 
 import com.kangarootech.flickr.enums.ApiEnum
+import com.kangarootech.flickr.network.response.ImageSizesResponseDTO
 import com.kangarootech.flickr.network.response.PhotoDetailsResponseDTO
 import com.kangarootech.flickr.network.response.PhotosResponseDTO
 import retrofit2.Call
@@ -22,14 +23,14 @@ interface ApiService {
 
     @GET("?method=flickr.photos.getRecent&format=json&nojsoncallback=1")
     fun getRecentImages(
-        @Query("page") page: Int,
-        @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
+            @Query("page") page: Int,
+            @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
     ): Call<PhotosResponseDTO?>
 
     @GET("?method=flickr.photos.getInfo&format=json&nojsoncallback=1")
     fun getImageDetail(
-        @Query("photo_id") photoId: String,
-        @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
+            @Query("photo_id") photoId: String,
+            @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
     ): Call<PhotoDetailsResponseDTO>
 
     @GET("?method=flickr.photos.search&format=json&nojsoncallback=1")
@@ -43,4 +44,10 @@ interface ApiService {
             @Query("group_id") groupId: String = ApiEnum.EXPLORE_GROUP_ID.toString(),
             @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
     ): Call<PhotosResponseDTO?>
+
+    @GET("?method=flickr.photos.getSizes&format=json&nojsoncallback=1")
+    fun getImageSizes(
+            @Query("photo_id") photoId: String,
+            @Query("api_key") apiKey: String = ApiEnum.API_KEY.toString()
+    ): Call<ImageSizesResponseDTO>
 }

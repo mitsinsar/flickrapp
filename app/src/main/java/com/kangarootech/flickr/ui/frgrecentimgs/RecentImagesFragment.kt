@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.Repository
 import com.kangarootech.flickr.adapter.RecentImagesRecyclerAdapter
@@ -21,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_recent_images.*
 class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, RecentImagesContract.View {
 
     private val mPresenter by lazy { RecentImagesPresenter(this, Repository(context!!)) }
+    private val mPicassoHelper by lazy { PicassoHelper() }
     private lateinit var mAdapter: RecentImagesRecyclerAdapter
     private val RECYCLER_ROW_ITEM_COUNT = 2
     private val RECYCLER_ITEM_CACHE_SIZE = 40
@@ -43,7 +45,7 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = RecentImagesRecyclerAdapter(mutableListOf()) { _image ->
+        mAdapter = RecentImagesRecyclerAdapter(mutableListOf(), mPicassoHelper) { _image ->
             mPresenter.onClickImage(_image)
         }
 
@@ -74,7 +76,7 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
 
     override fun hideProgress() {
         swipeRefreshRecentImages?.run {
-            if(isRefreshing)
+            if (isRefreshing)
                 isRefreshing = false
         }
         pbarRecentImages?.run {

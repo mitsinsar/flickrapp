@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.dto.photos.PhotoDTO
-import com.squareup.picasso.Picasso
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 
@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso
 ////////////////////////////
 
 
-class RecentImagesViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
+class RecentImagesViewHolder(parent: ViewGroup, private val mPicassoHelper: PicassoHelper) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context)
         .inflate(R.layout.adapter_item_recent_images, parent, false)
 ) {
@@ -37,7 +37,7 @@ class RecentImagesViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
 
         title.text = model.title
         val imageUrl = "https://farm${model.farm}.staticflickr.com/${model.server}/${model.id}_${model.secret}_z.jpg"
-        Picasso.get().load(imageUrl).into(image)
+        mPicassoHelper.loadUrl(imageUrl, image)
 
         itemView.setOnClickListener {
             onItemClick(model)

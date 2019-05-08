@@ -2,6 +2,7 @@ package com.kangarootech.flickr.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.dto.photos.PhotoDTO
 import com.kangarootech.flickr.viewholder.RecentImagesViewHolder
 
@@ -18,10 +19,11 @@ import com.kangarootech.flickr.viewholder.RecentImagesViewHolder
 
 class RecentImagesRecyclerAdapter(
     private var items: MutableList<PhotoDTO>,
-    private var onItemClick: (PhotoDTO) -> Unit
+    private val mPicassoHelper: PicassoHelper,
+    private val onItemClick: (PhotoDTO) -> Unit
 ) : RecyclerView.Adapter<RecentImagesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        RecentImagesViewHolder(parent)
+        RecentImagesViewHolder(parent, mPicassoHelper)
 
     override fun getItemCount() = items.size
 

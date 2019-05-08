@@ -6,10 +6,10 @@ import android.view.View.OnClickListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.Repository
 import com.kangarootech.flickr.dto.photodetail.PhotoDetailDTO
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_image.*
 import kotlinx.android.synthetic.main.layout_image_activity_bottom.*
 import kotlinx.android.synthetic.main.layout_image_activity_top.*
@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.layout_image_activity_top.*
 class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickListener {
 
     private val mPresenter by lazy { ImageActivityPresenter(this, Repository(this)) }
+    private val mPicassoInstance by lazy { PicassoHelper() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,18 +87,13 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
             "https://farm$farm.staticflickr.com/$server/${id}_$secret.jpg"
         }
 
-        Picasso.get()
-            .load(imageUrl)
-            .into(imgImageActivity)
+        mPicassoInstance.loadUrl(imageUrl, imgImageActivity)
     }
 
     private fun loadOwnerIcon(farm: Int, server: String, nsid: String) {
 
         val iconUrl = "http://farm$farm.staticflickr.com/$server/buddyicons/$nsid.jpg"
 
-        Picasso.get()
-            .load(iconUrl)
-            .placeholder(R.drawable.dr_placeholder_profilepic)
-            .into(imgImageActivityOwnerImage)
+        mPicassoInstance.loadUrl(iconUrl, imgImageActivityOwnerImage)
     }
 }
