@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.R
@@ -94,12 +95,12 @@ class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListe
         }
 
         recyclerSearchResult.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = mAdapterSearchResult
         }
 
         recyclerDefaultImages.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = mAdapterDefault
         }
 

@@ -17,6 +17,8 @@ interface IImageHelper {
 
     fun loadUrl(url: String, targetView: ImageView)
 
+    fun loadUrlFitCenterInside(url: String, targetView: ImageView)
+
     fun loadUrlWithPlaceholder(url: String, targetView: ImageView, placeholderSrc: Int)
 
     fun loadUrlWithErrorImg(url: String, targetView: ImageView, errorImgSrc: Int)

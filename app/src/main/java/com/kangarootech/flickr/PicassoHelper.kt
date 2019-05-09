@@ -22,6 +22,10 @@ class PicassoHelper : IImageHelper {
         mPicassoInstance.load(url).into(targetView)
     }
 
+    override fun loadUrlFitCenterInside(url: String, targetView: ImageView) {
+        mPicassoInstance.load(url).fit().centerInside().into(targetView)
+    }
+
     override fun loadUrlWithPlaceholder(url: String, targetView: ImageView, placeholderSrc: Int) {
         mPicassoInstance.load(url).placeholder(placeholderSrc).into(targetView)
     }
