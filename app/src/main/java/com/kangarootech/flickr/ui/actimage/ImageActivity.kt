@@ -1,15 +1,18 @@
 package com.kangarootech.flickr.ui.actimage
 
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.Repository
 import com.kangarootech.flickr.dto.photodetail.PhotoDetailDTO
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Target
 import kotlinx.android.synthetic.main.activity_image.*
 import kotlinx.android.synthetic.main.layout_image_activity_bottom.*
 import kotlinx.android.synthetic.main.layout_image_activity_top.*
@@ -17,7 +20,6 @@ import kotlinx.android.synthetic.main.layout_image_activity_top.*
 class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickListener {
 
     private val mPresenter by lazy { ImageActivityPresenter(this, Repository(this)) }
-    private val mPicassoInstance by lazy { PicassoHelper() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,10 +82,19 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
     }
 
     override fun loadImage(imageUrl: String) {
-        mPicassoInstance.loadUrl(imageUrl, imgImageActivity)
+        Picasso.get().load(imageUrl).into(object: Target{
+            override fun onPrepareLoad(placeHolderDrawable: Drawable?) {}
+
+            override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {}
+
+            override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
+                imgImageActivity.setImageBitmap(bitmap!!)
+            }
+
+        })
     }
 
     override fun loadOwnerIcon(iconUrl: String) {
-        mPicassoInstance.loadUrl(iconUrl, imgImageActivityOwnerImage)
+        Picasso.get().load(iconUrl).into(imgImageActivityOwnerImage)
     }
 }

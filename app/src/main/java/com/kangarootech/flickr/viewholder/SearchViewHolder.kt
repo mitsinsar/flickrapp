@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.squareup.picasso.Picasso
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 
@@ -19,7 +19,7 @@ import com.kangarootech.flickr.dto.photos.PhotoDTO
 ////////////////////////////
 
 
-class SearchViewHolder(parent: ViewGroup, private val mPicassoHelper: PicassoHelper) : RecyclerView.ViewHolder(
+class SearchViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context)
         .inflate(R.layout.adapter_item_search, parent, false)
 ) {
@@ -27,7 +27,7 @@ class SearchViewHolder(parent: ViewGroup, private val mPicassoHelper: PicassoHel
     private val image by lazy { itemView.findViewById<ImageView>(R.id.imgSearch) }
 
     fun bind(model: PhotoDTO, onItemClick: (PhotoDTO) -> Unit) {
-        mPicassoHelper.loadUrl(model.getImageUrl(), image)
+        Picasso.get().load(model.getImageUrl()).into(image)
 
         itemView.setOnClickListener {
             onItemClick(model)

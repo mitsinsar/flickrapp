@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.appbar.AppBarLayout
-import com.kangarootech.flickr.PicassoHelper
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.Repository
 import com.kangarootech.flickr.adapter.SearchHistoryRecyclerAdapter
@@ -33,7 +32,6 @@ class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListe
 
     private val appBar by lazy { activity!!.findViewById<AppBarLayout>(R.id.appBarLayoutMainAct) }
     private val mPresenter by lazy { SearchPresenter(this, Repository(context!!)) }
-    private val mPicassoHelper by lazy { PicassoHelper() }
     private lateinit var mAdapterDefault: SearchRecyclerAdapter
     private lateinit var mAdapterSearchResult: SearchRecyclerAdapter
     private lateinit var mAdapterSearchHistory: SearchHistoryRecyclerAdapter
@@ -78,11 +76,11 @@ class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListe
                 mPresenter.onClickDeleteHistory(_item, _position)
             })
 
-        mAdapterSearchResult = SearchRecyclerAdapter(listOf(), mPicassoHelper) {
+        mAdapterSearchResult = SearchRecyclerAdapter(listOf()) {
             mPresenter.onClickImage(it)
         }
 
-        mAdapterDefault = SearchRecyclerAdapter(listOf(), mPicassoHelper) {
+        mAdapterDefault = SearchRecyclerAdapter(listOf()) {
             mPresenter.onClickImage(it)
         }
     }
