@@ -9,7 +9,8 @@
         android:id="@+id/imgImageActivityOwnerImage"
         android:layout_width="@dimen/circular_img_size"
         android:layout_height="@dimen/circular_img_size"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/margin_img_act_owner_img"
+        android:layout_centerVertical="true"
         android:src="@drawable/dr_placeholder_profilepic" />
 
     <TextView
@@ -29,12 +30,14 @@
 
     <ImageButton
         android:id="@+id/btnImageActClose"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/btn_size_img_act_close"
+        android:layout_height="@dimen/btn_size_img_act_close"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_margin="16dp"
-        android:background="@drawable/ic_close_white"
+        android:layout_margin="@dimen/btn_margin_img_act_close"
+        android:padding="@dimen/btn_padding_img_act_close"
+        android:src="@drawable/ic_close_white"
+        android:background="@color/transparent"
         android:contentDescription="@string/description_close_image" />
 </RelativeLayout>
