@@ -80,7 +80,7 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
     }
 
     override fun loadImage(imageUrl: String) {
-        mPicassoInstance.loadUrlFitCenterInside(imageUrl, imgImageActivity)
+        mPicassoInstance.loadUrl(imageUrl, imgImageActivity)
     }
 
     override fun loadOwnerIcon(iconUrl: String) {

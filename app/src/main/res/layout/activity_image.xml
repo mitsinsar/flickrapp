@@ -1,32 +1,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:background="@color/black"
-    tools:context=".ui.actimage.ImageActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:background="@color/black"
+                tools:context=".ui.actimage.ImageActivity">
 
-    <ImageView
-        android:id="@+id/imgImageActivity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:contentDescription="@string/description_image_activity_main_image"
-        android:scaleType="fitCenter" />
-
-    <include
-        android:id="@+id/layoutImgActivityTop"
-        layout="@layout/layout_image_activity_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" />
-
+    <com.kangarootech.flickr.ZoomImageView
+            android:id="@+id/imgImageActivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/description_image_activity_main_image"
+            android:scaleType="center"/>
 
     <include
-        android:id="@+id/layoutImgActivityBottom"
-        layout="@layout/layout_image_activity_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+            android:id="@+id/layoutImgActivityTop"
+            layout="@layout/layout_image_activity_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"/>
+
+
+    <include
+            android:id="@+id/layoutImgActivityBottom"
+            layout="@layout/layout_image_activity_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

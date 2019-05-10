@@ -1,7 +1,10 @@
 package com.kangarootech.flickr
 
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
+import com.squareup.picasso.Target
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 
@@ -19,11 +22,20 @@ class PicassoHelper : IImageHelper {
     private val mPicassoInstance by lazy { Picasso.get() }
 
     override fun loadUrl(url: String, targetView: ImageView) {
-        mPicassoInstance.load(url).into(targetView)
-    }
+        mPicassoInstance.load(url).into(object : Target {
+            override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
 
-    override fun loadUrlFitCenterInside(url: String, targetView: ImageView) {
-        mPicassoInstance.load(url).fit().centerInside().into(targetView)
+            }
+
+            override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
+
+            }
+
+            override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
+                targetView.setImageBitmap(bitmap!!)
+            }
+
+        })
     }
 
     override fun loadUrlWithPlaceholder(url: String, targetView: ImageView, placeholderSrc: Int) {
