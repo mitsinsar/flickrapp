@@ -22,6 +22,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions 'dev'
+
+    productFlavors {
+        dev{
+            buildConfigField("String", "API_BASE_URL", '"https://api.flickr.com/services/rest/"')
+            buildConfigField("String", "API_KEY", '"95f869e39704ca91477799b706a64be4"')
+            buildConfigField("String", "API_KEY_SECRET", '"23bf605daa04a950"')
+        }
+    }
 }
 
 dependencies {

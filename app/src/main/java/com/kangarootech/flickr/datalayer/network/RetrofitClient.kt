@@ -1,6 +1,6 @@
 package com.kangarootech.flickr.datalayer.network
 
-import com.kangarootech.flickr.enums.ApiEnum
+import com.kangarootech.flickr.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -22,7 +22,7 @@ class RetrofitClient {
         fun getClient(): Retrofit {
 
             return Retrofit.Builder()
-                .baseUrl(ApiEnum.API_BASE_URL.toString())
+                .baseUrl(BuildConfig.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
