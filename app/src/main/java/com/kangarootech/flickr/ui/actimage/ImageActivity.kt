@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.datalayer.Repository
+import com.kangarootech.flickr.datalayer.network.PicassoClient
 import com.kangarootech.flickr.datalayer.network.dto.photodetail.PhotoDetailDTO
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
@@ -82,7 +83,7 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
     }
 
     override fun loadImage(imageUrl: String) {
-        Picasso.get().load(imageUrl).into(object : Target {
+        PicassoClient.getClient().load(imageUrl).into(object : Target {
             override fun onPrepareLoad(placeHolderDrawable: Drawable?) {}
 
             override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {}
@@ -95,6 +96,6 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
     }
 
     override fun loadOwnerIcon(iconUrl: String) {
-        Picasso.get().load(iconUrl).into(imgImageActivityOwnerImage)
+        PicassoClient.getClient().load(iconUrl).into(imgImageActivityOwnerImage)
     }
 }

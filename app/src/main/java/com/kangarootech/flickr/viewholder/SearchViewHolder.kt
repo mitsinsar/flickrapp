@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.kangarootech.flickr.R
+import com.kangarootech.flickr.datalayer.network.PicassoClient
 import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
-import com.squareup.picasso.Picasso
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 
@@ -27,7 +27,7 @@ class SearchViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     private val image by lazy { itemView.findViewById<ImageView>(R.id.imgSearch) }
 
     fun bind(model: PhotoDTO, onItemClick: (PhotoDTO) -> Unit) {
-        Picasso.get().load(model.getImageUrl()).into(image)
+        PicassoClient.getClient().load(model.getImageUrl()).into(image)
 
         itemView.setOnClickListener {
             onItemClick(model)
