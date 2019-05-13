@@ -16,5 +16,6 @@
     <string name="description_btn_clear_text">search text clear button</string>
     <string name="description_search_magnifying_glass">search magnifying glass</string>
     <string name="description_search_history_delete_btn">delete from search history</string>
+    <string name="info_last_page">Oppss! You\'ve reached to the last page</string>
 
 </resources>

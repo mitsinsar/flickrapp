@@ -10,9 +10,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.kangarootech.flickr.DependencyUtil
 import com.kangarootech.flickr.R
 import com.kangarootech.flickr.adapter.RecentImagesRecyclerAdapter
-import com.kangarootech.flickr.datalayer.Repository
 import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 import com.kangarootech.flickr.ui.actimage.ImageActivity
 import com.kangarootech.flickr.util.RecyclerScrollListener
@@ -20,7 +20,9 @@ import kotlinx.android.synthetic.main.fragment_recent_images.*
 
 class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, RecentImagesContract.View {
 
-    private val mPresenter by lazy { RecentImagesPresenter(this, Repository(context!!)) }
+    private val mPresenter by lazy {
+        DependencyUtil.getRecentImagesPresenter(this, DependencyUtil.getRepository(context!!))
+    }
     private lateinit var mAdapter: RecentImagesRecyclerAdapter
     private val RECYCLER_ROW_ITEM_COUNT = 2
     private val RECYCLER_ITEM_CACHE_SIZE = 40
@@ -34,8 +36,8 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_recent_images, container, false)
     }
@@ -62,6 +64,10 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
 
                 override fun loadMoreItems() {
                     mPresenter.getImagesByPage(currentPage)
+                }
+
+                override fun showToast() {
+                    this@RecentImagesFragment.showToast(getString(R.string.info_last_page))
                 }
 
             })

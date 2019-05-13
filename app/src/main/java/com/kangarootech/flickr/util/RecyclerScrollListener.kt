@@ -17,6 +17,7 @@ abstract class RecyclerScrollListener(private val layoutManager: GridLayoutManag
     abstract var isLoading: Boolean
     abstract var isLastPage: Boolean
     abstract fun loadMoreItems()
+    abstract fun showToast()
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         super.onScrolled(recyclerView, dx, dy)
@@ -25,11 +26,13 @@ abstract class RecyclerScrollListener(private val layoutManager: GridLayoutManag
         val totalItemCount = layoutManager.itemCount
         val firstVisibleItemCount = layoutManager.findFirstVisibleItemPosition()
 
-        if (!isLoading) {
-            if ((visibleItemCount + firstVisibleItemCount) >= totalItemCount
-                    && firstVisibleItemCount >= 0
-                    && totalItemCount >= pageSize)
+        if ((visibleItemCount + firstVisibleItemCount) >= totalItemCount
+            && firstVisibleItemCount >= 0
+            && totalItemCount >= pageSize) {
+            if (!isLoading && !isLastPage)
                 loadMoreItems()
+            if(isLastPage)
+                showToast()
         }
 
     }

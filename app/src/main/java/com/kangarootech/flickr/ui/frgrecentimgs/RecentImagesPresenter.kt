@@ -33,6 +33,7 @@ class RecentImagesPresenter(
                 StatusCodeEnum.OK.value -> {
                     view.appendToList(_resultDTO!!.photos.photoList)
                     view.updateCurrentPage()
+                    view.updateLastPage(_resultDTO.photos.pages)
                 }
                 StatusCodeEnum.CONNECTION_ERROR.value -> view.showToast("Connection problem")
                 StatusCodeEnum.SERVICE_UNAVAILABLE.value -> view.showToast("Service unavailable")

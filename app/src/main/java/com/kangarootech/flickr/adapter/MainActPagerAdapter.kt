@@ -2,8 +2,7 @@ package com.kangarootech.flickr.adapter
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.kangarootech.flickr.ui.frgrecentimgs.RecentImagesFragment
-import com.kangarootech.flickr.ui.frgsearch.SearchFragment
+import com.kangarootech.flickr.DependencyUtil
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 
@@ -18,14 +17,8 @@ import com.kangarootech.flickr.ui.frgsearch.SearchFragment
 
 class MainActPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-    private val FRAGMENT_COUNT = 2
-    private val fragmentRecentImages by lazy { RecentImagesFragment.newInstance() }
-    private val fragmentSearch by lazy { SearchFragment.newInstance() }
+    private val fragments by lazy { DependencyUtil.getMainFragments() }
 
-    override fun getItem(position: Int) = when (position) {
-        0 -> fragmentRecentImages
-        else -> fragmentSearch
-    }
-
-    override fun getCount() = FRAGMENT_COUNT
+    override fun getItem(position: Int) = fragments[position]
+    override fun getCount() = fragments.size
 }

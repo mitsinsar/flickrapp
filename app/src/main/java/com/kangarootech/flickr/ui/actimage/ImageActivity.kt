@@ -8,8 +8,8 @@ import android.view.View.OnClickListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.kangarootech.flickr.DependencyUtil
 import com.kangarootech.flickr.R
-import com.kangarootech.flickr.datalayer.Repository
 import com.kangarootech.flickr.datalayer.network.PicassoClient
 import com.kangarootech.flickr.datalayer.network.dto.photodetail.PhotoDetailDTO
 import com.squareup.picasso.Picasso
@@ -20,7 +20,9 @@ import kotlinx.android.synthetic.main.layout_image_activity_top.*
 
 class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickListener {
 
-    private val mPresenter by lazy { ImageActivityPresenter(this, Repository(this)) }
+    private val mPresenter by lazy {
+        DependencyUtil.getImagePresenter(this, DependencyUtil.getRepository(this))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
