@@ -1,6 +1,4 @@
-package com.kangarootech.flickr.dto.photodetail
-
-import com.google.gson.annotations.SerializedName
+package com.kangarootech.flickr.datalayer.network.dto.photodetail
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 
@@ -13,4 +11,4 @@ import com.google.gson.annotations.SerializedName
 ////////////////////////////
 
 
-data class PeopleDTO (@SerializedName("haspeople") val hasPeople: Int)
+data class ContentDTO(val _content: Any)

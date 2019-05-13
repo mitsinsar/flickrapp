@@ -1,4 +1,4 @@
-package com.kangarootech.flickr.dto.photodetail
+package com.kangarootech.flickr.datalayer.network.dto.photodetail
 
 import com.google.gson.annotations.SerializedName
 
@@ -13,14 +13,13 @@ import com.google.gson.annotations.SerializedName
 ////////////////////////////
 
 
-data class OwnerDTO(
-    val nsid: String,
-    val username: String,
-    val realname: String,
-    val location: String,
-    @SerializedName("iconserver")
-    val iconServer: String,
-    @SerializedName("iconfarm")
-    val iconFarm: Int,
-    val path_alias: String?
+data class UsageDTO(
+    @SerializedName("candownload")
+    val canDownload: Int,
+    @SerializedName("canblog")
+    val canBlog: Int,
+    @SerializedName("canprint")
+    val canPrint: Int,
+    @SerializedName("canshare")
+    val canShare: Int
 )

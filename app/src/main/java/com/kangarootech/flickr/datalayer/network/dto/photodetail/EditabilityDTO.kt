@@ -1,4 +1,4 @@
-package com.kangarootech.flickr.dto.photodetail
+package com.kangarootech.flickr.datalayer.network.dto.photodetail
 
 import com.google.gson.annotations.SerializedName
 
@@ -13,13 +13,9 @@ import com.google.gson.annotations.SerializedName
 ////////////////////////////
 
 
-data class UsageDTO(
-    @SerializedName("candownload")
-    val canDownload: Int,
-    @SerializedName("canblog")
-    val canBlog: Int,
-    @SerializedName("canprint")
-    val canPrint: Int,
-    @SerializedName("canshare")
-    val canShare: Int
+data class EditabilityDTO(
+    @SerializedName("cancomment")
+    val canComment: Int,
+    @SerializedName("canaddmeta")
+    val canAddMeta: Int
 )

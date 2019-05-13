@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.kangarootech.flickr.R
-import com.kangarootech.flickr.Repository
 import com.kangarootech.flickr.adapter.RecentImagesRecyclerAdapter
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.Repository
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 import com.kangarootech.flickr.ui.actimage.ImageActivity
 import com.kangarootech.flickr.util.RecyclerScrollListener
 import kotlinx.android.synthetic.main.fragment_recent_images.*
@@ -34,8 +34,8 @@ class RecentImagesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, R
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_recent_images, container, false)
     }

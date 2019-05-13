@@ -1,4 +1,4 @@
-package com.kangarootech.flickr.database
+package com.kangarootech.flickr.datalayer.database
 
 import androidx.room.*
 

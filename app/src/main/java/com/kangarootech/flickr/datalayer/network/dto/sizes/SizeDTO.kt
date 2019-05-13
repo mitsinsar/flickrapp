@@ -1,4 +1,4 @@
-package com.kangarootech.flickr.dto.sizes
+package com.kangarootech.flickr.datalayer.network.dto.sizes
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 

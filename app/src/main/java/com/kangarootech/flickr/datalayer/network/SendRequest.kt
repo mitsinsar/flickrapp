@@ -1,9 +1,7 @@
-package com.kangarootech.flickr
+package com.kangarootech.flickr.datalayer.network
 
-import com.kangarootech.flickr.network.ApiService
-import com.kangarootech.flickr.network.RetrofitClient
-import com.kangarootech.flickr.network.response.PhotoDetailsResponseDTO
-import com.kangarootech.flickr.network.response.PhotosResponseDTO
+import com.kangarootech.flickr.datalayer.network.response.PhotoDetailsResponseDTO
+import com.kangarootech.flickr.datalayer.network.response.PhotosResponseDTO
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -87,7 +85,7 @@ object SendRequest {
         RetrofitClient.getClient()
                 .create(ApiService::class.java)
                 .getImageBySearch(searchText)
-                .enqueue(object: Callback<PhotosResponseDTO?>{
+                .enqueue(object : Callback<PhotosResponseDTO?> {
                     override fun onFailure(call: Call<PhotosResponseDTO?>, t: Throwable) {
                         onFailure(call, t)
                     }

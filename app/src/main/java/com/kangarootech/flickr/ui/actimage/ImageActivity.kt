@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.kangarootech.flickr.R
-import com.kangarootech.flickr.Repository
-import com.kangarootech.flickr.dto.photodetail.PhotoDetailDTO
+import com.kangarootech.flickr.datalayer.Repository
+import com.kangarootech.flickr.datalayer.network.dto.photodetail.PhotoDetailDTO
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
 import kotlinx.android.synthetic.main.activity_image.*
@@ -82,7 +82,7 @@ class ImageActivity : AppCompatActivity(), ImageActivityContract.View, OnClickLi
     }
 
     override fun loadImage(imageUrl: String) {
-        Picasso.get().load(imageUrl).into(object: Target{
+        Picasso.get().load(imageUrl).into(object : Target {
             override fun onPrepareLoad(placeHolderDrawable: Drawable?) {}
 
             override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {}

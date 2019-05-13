@@ -1,14 +1,15 @@
-package com.kangarootech.flickr
+package com.kangarootech.flickr.datalayer
 
 import android.content.Context
 import android.os.AsyncTask
-import com.kangarootech.flickr.database.DatabaseClient
-import com.kangarootech.flickr.database.SearchDao
-import com.kangarootech.flickr.database.SearchHistoryEntity
+import com.kangarootech.flickr.datalayer.database.DatabaseClient
+import com.kangarootech.flickr.datalayer.database.SearchDao
+import com.kangarootech.flickr.datalayer.database.SearchHistoryEntity
+import com.kangarootech.flickr.datalayer.network.SendRequest
+import com.kangarootech.flickr.datalayer.network.response.PhotoDetailsResponseDTO
+import com.kangarootech.flickr.datalayer.network.response.PhotosResponseDTO
 import com.kangarootech.flickr.enums.ApiEnum
 import com.kangarootech.flickr.enums.StatusCodeEnum
-import com.kangarootech.flickr.network.response.PhotoDetailsResponseDTO
-import com.kangarootech.flickr.network.response.PhotosResponseDTO
 import com.kangarootech.flickr.util.hasConnection
 
 ////////////////////////////

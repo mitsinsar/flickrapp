@@ -7,7 +7,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kangarootech.flickr.R
-import com.kangarootech.flickr.database.SearchHistoryEntity
+import com.kangarootech.flickr.datalayer.database.SearchHistoryEntity
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 

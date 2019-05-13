@@ -1,7 +1,7 @@
 package com.kangarootech.flickr.ui.frgsearch
 
-import com.kangarootech.flickr.database.SearchHistoryEntity
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.database.SearchHistoryEntity
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 

@@ -19,16 +19,16 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.kangarootech.flickr.R
-import com.kangarootech.flickr.Repository
 import com.kangarootech.flickr.adapter.SearchHistoryRecyclerAdapter
 import com.kangarootech.flickr.adapter.SearchRecyclerAdapter
-import com.kangarootech.flickr.database.SearchHistoryEntity
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.Repository
+import com.kangarootech.flickr.datalayer.database.SearchHistoryEntity
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 import com.kangarootech.flickr.ui.actimage.ImageActivity
 import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListener, SearchContract.View, TextWatcher,
-    TextView.OnEditorActionListener {
+        TextView.OnEditorActionListener {
 
     private val appBar by lazy { activity!!.findViewById<AppBarLayout>(R.id.appBarLayoutMainAct) }
     private val mPresenter by lazy { SearchPresenter(this, Repository(context!!)) }
@@ -42,8 +42,8 @@ class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListe
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
@@ -69,12 +69,12 @@ class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListe
     private fun initAdapters() {
 
         mAdapterSearchHistory = SearchHistoryRecyclerAdapter(listOf(),
-            onClickSearch = {
-                mPresenter.onClickSearch(it.searchText)
-            },
-            onClickDelete = { _item, _position ->
-                mPresenter.onClickDeleteHistory(_item, _position)
-            })
+                onClickSearch = {
+                    mPresenter.onClickSearch(it.searchText)
+                },
+                onClickDelete = { _item, _position ->
+                    mPresenter.onClickDeleteHistory(_item, _position)
+                })
 
         mAdapterSearchResult = SearchRecyclerAdapter(listOf()) {
             mPresenter.onClickImage(it)
@@ -145,7 +145,7 @@ class SearchFragment : Fragment(), View.OnClickListener, View.OnFocusChangeListe
 
     override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
         if (actionId == EditorInfo.IME_ACTION_SEARCH
-            && edtSearch.text.isNotBlank()
+                && edtSearch.text.isNotBlank()
         ) {
             mPresenter.onClickSearch(edtSearch.text.toString())
         }

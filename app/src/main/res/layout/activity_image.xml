@@ -6,7 +6,7 @@
                 android:background="@color/black"
                 tools:context=".ui.actimage.ImageActivity">
 
-    <com.kangarootech.flickr.ZoomImageView
+    <com.kangarootech.flickr.util.ZoomImageView
             android:id="@+id/imgImageActivity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

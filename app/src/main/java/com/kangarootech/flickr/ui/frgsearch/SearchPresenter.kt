@@ -1,9 +1,9 @@
 package com.kangarootech.flickr.ui.frgsearch
 
 import android.view.View
-import com.kangarootech.flickr.Repository
-import com.kangarootech.flickr.database.SearchHistoryEntity
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.Repository
+import com.kangarootech.flickr.datalayer.database.SearchHistoryEntity
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 import com.kangarootech.flickr.enums.StatusCodeEnum
 
 ////////////////////////////

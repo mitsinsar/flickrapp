@@ -1,4 +1,4 @@
-package com.kangarootech.flickr
+package com.kangarootech.flickr.util
 
 import android.content.Context
 import android.graphics.Bitmap

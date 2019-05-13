@@ -2,7 +2,7 @@ package com.kangarootech.flickr.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 import com.kangarootech.flickr.viewholder.SearchViewHolder
 
 ////////////////////////////

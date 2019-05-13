@@ -2,7 +2,7 @@ package com.kangarootech.flickr.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.kangarootech.flickr.database.SearchHistoryEntity
+import com.kangarootech.flickr.datalayer.database.SearchHistoryEntity
 import com.kangarootech.flickr.viewholder.SearchHistoryViewHolder
 
 ////////////////////////////

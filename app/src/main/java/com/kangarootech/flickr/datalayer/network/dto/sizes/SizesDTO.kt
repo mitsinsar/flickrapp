@@ -1,4 +1,4 @@
-package com.kangarootech.flickr.dto.sizes
+package com.kangarootech.flickr.datalayer.network.dto.sizes
 
 import com.google.gson.annotations.SerializedName
 

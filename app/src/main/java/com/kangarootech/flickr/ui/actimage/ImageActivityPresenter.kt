@@ -1,6 +1,6 @@
 package com.kangarootech.flickr.ui.actimage
 
-import com.kangarootech.flickr.Repository
+import com.kangarootech.flickr.datalayer.Repository
 import com.kangarootech.flickr.enums.StatusCodeEnum
 import com.kangarootech.flickr.ui.actimage.ImageActivityContract.Presenter
 import com.kangarootech.flickr.ui.actimage.ImageActivityContract.View

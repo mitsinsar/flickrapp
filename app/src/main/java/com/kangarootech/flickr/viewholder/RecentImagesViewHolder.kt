@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kangarootech.flickr.R
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 import com.squareup.picasso.Picasso
 
 ////////////////////////////

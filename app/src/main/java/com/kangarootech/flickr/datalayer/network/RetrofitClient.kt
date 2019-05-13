@@ -1,4 +1,4 @@
-package com.kangarootech.flickr.network
+package com.kangarootech.flickr.datalayer.network
 
 import com.kangarootech.flickr.enums.ApiEnum
 import retrofit2.Retrofit

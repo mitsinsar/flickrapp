@@ -1,6 +1,6 @@
 package com.kangarootech.flickr.ui.frgrecentimgs
 
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 

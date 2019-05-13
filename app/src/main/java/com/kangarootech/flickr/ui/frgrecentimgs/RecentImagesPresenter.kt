@@ -1,7 +1,7 @@
 package com.kangarootech.flickr.ui.frgrecentimgs
 
-import com.kangarootech.flickr.Repository
-import com.kangarootech.flickr.dto.photos.PhotoDTO
+import com.kangarootech.flickr.datalayer.Repository
+import com.kangarootech.flickr.datalayer.network.dto.photos.PhotoDTO
 import com.kangarootech.flickr.enums.StatusCodeEnum
 import com.kangarootech.flickr.ui.frgrecentimgs.RecentImagesContract.Presenter
 import com.kangarootech.flickr.ui.frgrecentimgs.RecentImagesContract.View
@@ -18,8 +18,8 @@ import com.kangarootech.flickr.ui.frgrecentimgs.RecentImagesContract.View
 
 
 class RecentImagesPresenter(
-    private val view: View,
-    private val mRepository: Repository
+        private val view: View,
+        private val mRepository: Repository
 ) : Presenter {
 
     override fun onClickImage(image: PhotoDTO) {
@@ -47,8 +47,8 @@ class RecentImagesPresenter(
         mRepository.getImages(1) { _resultDTO, _resultCode ->
             when (_resultCode) {
                 StatusCodeEnum.OK.value -> {
-                        view.updateList(_resultDTO!!.photos.photoList)
-                        view.updateLastPage(_resultDTO.photos.pages)
+                    view.updateList(_resultDTO!!.photos.photoList)
+                    view.updateLastPage(_resultDTO.photos.pages)
                 }
                 StatusCodeEnum.CONNECTION_ERROR.value -> view.showToast("Connection problem.")
                 StatusCodeEnum.SERVICE_UNAVAILABLE.value -> view.showToast("Service unavailable")

@@ -1,8 +1,8 @@
-package com.kangarootech.flickr.network
+package com.kangarootech.flickr.datalayer.network
 
+import com.kangarootech.flickr.datalayer.network.response.PhotoDetailsResponseDTO
+import com.kangarootech.flickr.datalayer.network.response.PhotosResponseDTO
 import com.kangarootech.flickr.enums.ApiEnum
-import com.kangarootech.flickr.network.response.PhotoDetailsResponseDTO
-import com.kangarootech.flickr.network.response.PhotosResponseDTO
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

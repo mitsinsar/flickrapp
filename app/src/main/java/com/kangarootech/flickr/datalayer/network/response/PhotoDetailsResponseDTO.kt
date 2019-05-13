@@ -1,6 +1,6 @@
-package com.kangarootech.flickr.network.response
+package com.kangarootech.flickr.datalayer.network.response
 
-import com.kangarootech.flickr.dto.photodetail.PhotoDetailDTO
+import com.kangarootech.flickr.datalayer.network.dto.photodetail.PhotoDetailDTO
 
 ////////////////////////////
 //    Mithat Sinan Sarı   // 
